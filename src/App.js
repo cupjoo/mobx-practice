@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import SuperMarket from './components/SuperMarket'
+import DevTools from 'mobx-react-devtools';
 
 export default class App extends Component {
   render() {
     return (
       <div>
         <SuperMarket/>
+        {process.env.NODE_ENV === 'development' && <DevTools />}
       </div>
     )
   }

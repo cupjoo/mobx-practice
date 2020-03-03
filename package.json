@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.8",
+    "mobx-react-devtools": "^6.1.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0"
@@ -45,8 +46,18 @@
       "react-app"
     ],
     "plugins": [
-      ["@babel/plugin-proposal-decorators", { "legacy": true}],
-      ["@babel/plugin-proposal-class-properties", { "loose": true}]
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
     ]
   }
 }
