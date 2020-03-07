@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ShopItem from './ShopItem';
 
 const items = [
@@ -20,11 +20,11 @@ const items = [
   },
 ]
 
-export default class ShopItemList extends Component {
-  render() {
-    const itemList = items.map(item => 
-      <ShopItem {...item} key={item.name}/>
-    )
-    return <div>{itemList}</div>;
-  }
-}
+const ShopItemList = () => {
+  const itemList = items.map(item => 
+    <ShopItem {...item} key={item.name} />
+  );
+  return <div>{itemList}</div>;
+};
+
+export default ShopItemList;
