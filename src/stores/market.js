@@ -2,22 +2,24 @@ import { observable, action, computed } from 'mobx';
 
 export default class MarketStore {
   @observable selectedItems = [];
+  
+  constructor(root) {
+    this.root = root;
+  }
 
   @action
   put = (name, price) => {
-    // 존재하는지 찾고
+    const { number } = this.root.counter;
     const exists = this.selectedItems.find(item => item.name === name);
     if (!exists) {
-      // 존재하지 않는다면 새로 집어넣습니다.
       this.selectedItems.push({
         name,
         price,
-        count: 1,
+        count: number,
       });
       return;
     }
-    // 존재 한다면 count 값만 올립니다.
-    exists.count++;
+    exists.count += number;
   };
 
   @action
@@ -25,8 +27,7 @@ export default class MarketStore {
     const itemToTake = this.selectedItems.find(item => item.name === name);
     itemToTake.count--;
     if (itemToTake.count === 0) {
-      // 갯수가 0 이면
-      this.selectedItems.remove(itemToTake); // 배열에서 제거처리합니다.
+      this.selectedItems.remove(itemToTake);
     }
   };
 

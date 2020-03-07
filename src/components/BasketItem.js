@@ -2,7 +2,7 @@ import React from 'react'
 import './BasketItem.css';
 import { observer } from 'mobx-react';
 
-const BasketItem = ({ name, price, count, onTake }) => {
+const BasketItem = observer(({ name, price, count, onTake }) => {
   return (
     <div className="BasketItem">
       <div className="name">{name}</div>
@@ -11,6 +11,6 @@ const BasketItem = ({ name, price, count, onTake }) => {
       <div className="return" onClick={() => onTake(name)}>갖다놓기</div>
     </div>
   );
-};
+});
 
-export default observer(BasketItem);
+export default BasketItem;

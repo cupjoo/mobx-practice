@@ -4,12 +4,12 @@ import { Provider } from 'mobx-react';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import MarketStore from './stores/market';
+import RootStore from './stores';
 
-const market = new MarketStore();
+const root = new RootStore();
 
 ReactDOM.render(
-  <Provider market={market}>
+  <Provider {...root}>
     <App />
   </Provider>, document.getElementById('root'));
 
